@@ -1,0 +1,25 @@
+<h1 class="bg-primary">Welcome to {{title}}</h1>
+<!-- <h1>Demo text <img src="anyimage.jpg" alt=""/></h1> -->
+<img src="assets/images/MeInChicago.jpg" alt="Tariq Ahsan">
+<ul>
+  <li *ngFor="let user of users">
+    <div>
+      {{ user.firstName | lowercase }} {{ user.lastName | uppercase }}
+    </div>
+    <div
+      [innerHTML]="user.state | highlight: user.state">
+    </div>
+    
+    <div>
+      {{ user.dob | date: 'MMMM dd yyyy' }}
+    </div>
+    <div>
+      {{ user.salary | currency: 'USD' : 'code' }}
+    </div>
+    <div>
+      {{ user | json }}
+    </div>
+  </li>
+</ul>
+
+<router-outlet></router-outlet>
